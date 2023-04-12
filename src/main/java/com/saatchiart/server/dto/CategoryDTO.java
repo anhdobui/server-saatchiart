@@ -6,5 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CategoryDTO extends CategoryBaseDTO{
+    private String shortDescription;
+    private String content;
     private Integer countArtworks;
 }

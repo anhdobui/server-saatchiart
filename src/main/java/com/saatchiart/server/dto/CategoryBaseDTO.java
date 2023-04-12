@@ -11,6 +11,5 @@ public class CategoryBaseDTO {
     private Long id;
     private String name;
     private String code;
-    private String shortDescription;
-    private String content;
+    
 }

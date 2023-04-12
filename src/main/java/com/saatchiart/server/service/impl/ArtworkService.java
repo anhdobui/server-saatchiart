@@ -65,10 +65,13 @@ public class ArtworkService implements IArtworkService{
     }
 
     @Override
-    public void delete(long[] ids) {
+    public int delete(long[] ids) {
+        int oldLength = (int) artworkRepository.count();
         for(long id: ids) {
 			artworkRepository.deleteById(id);
 		}
+        int newLength = (int) artworkRepository.count();
+        return oldLength-newLength;
     }
 
     @Override
@@ -85,7 +88,7 @@ public class ArtworkService implements IArtworkService{
     }
 
     @Override
-    @Cacheable(value="dataCache")
+    // @Cacheable(value="dataCache")
     public List<ArtworkCatDTO> findAll() {
         List<ArtworkCatDTO> results = new ArrayList<>();
         List<ArtworkEntity> entities = artworkRepository.findAllByOrderByCreatedDateDesc();

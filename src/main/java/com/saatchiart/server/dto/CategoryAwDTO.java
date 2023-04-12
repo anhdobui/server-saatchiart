@@ -9,6 +9,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CategoryAwDTO extends CategoryBaseDTO{
+    private String shortDescription;
+    private String content;
     private List<ArtworkBaseDTO> artworks = new ArrayList<>();
     private Integer countArtworks = this.getArtworks().size();
 }

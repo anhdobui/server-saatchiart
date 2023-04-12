@@ -34,8 +34,7 @@ public class UploadImage {
     }
     private void upload() throws Exception{
         if(checkFile()){
-            ClassPathResource resource = new ClassPathResource("static");
-            Path staticPath = Paths.get(resource.getURI());
+            Path staticPath = Paths.get("upload");
             Path imagePath = Paths.get("images");
             if (!Files.exists(CURRENT_FOLDER.resolve(staticPath).resolve(imagePath))) {
                 Files.createDirectories(CURRENT_FOLDER.resolve(staticPath).resolve(imagePath));

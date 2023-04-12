@@ -68,9 +68,12 @@ public class CategoryService implements ICategoryService{
     }
 
     @Override
-    public void delete(long[] ids) {
+    public int delete(long[] ids) {
+        int oldLength = (int) categoryRepository.count();
         for(long id: ids) {
 			categoryRepository.deleteById(id);
 		}
+        int newLength = (int) categoryRepository.count();
+        return oldLength-newLength;
     }
 }

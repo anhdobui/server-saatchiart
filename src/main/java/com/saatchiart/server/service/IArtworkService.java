@@ -9,7 +9,7 @@ import com.saatchiart.server.dto.ArtworkDTO;
 
 public interface IArtworkService {
     ArtworkDTO save(ArtworkDTO artworkDTO) throws Exception;
-    void delete(long[] ids);
+    int delete(long[] ids);
     List<ArtworkCatDTO> findAll(Pageable pageable);
     List<ArtworkCatDTO> findAll();
     int totalItem();

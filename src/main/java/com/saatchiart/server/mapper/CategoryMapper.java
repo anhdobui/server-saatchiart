@@ -18,18 +18,14 @@ public class CategoryMapper {
     }
     public CategoryEntity toEntity(CategoryDTO dto,CategoryEntity oldEntity){
         oldEntity.setCode(dto.getCode());
-        oldEntity.setContent(dto.getContent());
         oldEntity.setName(dto.getName());
-        oldEntity.setShortDescription(dto.getShortDescription());
         return oldEntity;
     }
     public CategoryDTO toDTO(CategoryEntity entity){
         CategoryDTO dto = new CategoryDTO();
         dto.setId(entity.getId());
         dto.setCode(entity.getCode());
-        dto.setContent(entity.getContent());
         dto.setName(entity.getName());
-        dto.setShortDescription(entity.getShortDescription());
         dto.setCountArtworks(entity.getArtworks().size());
         return dto;
     }

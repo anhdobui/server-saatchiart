@@ -61,7 +61,6 @@ public class ArtworkMapper {
         category.setCode(entity.getCategory().getCode());
         category.setId(entity.getCategory().getId());
         category.setName(entity.getCategory().getName());
-        category.setContent(entity.getCategory().getContent());
         dto.setCategory(category);
         return dto;
     }
