@@ -1,5 +1,7 @@
 package com.saatchiart.server.mapper;
 
+import java.text.SimpleDateFormat;
+
 import org.springframework.stereotype.Component;
 
 import com.saatchiart.server.dto.ArtworkCatDTO;
@@ -9,6 +11,7 @@ import com.saatchiart.server.entity.ArtworkEntity;
 
 @Component
 public class ArtworkMapper {
+    private SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
     public ArtworkEntity toEntity(ArtworkDTO dto){
         ArtworkEntity entity = new ArtworkEntity();
         entity.setName(dto.getName());
@@ -62,6 +65,8 @@ public class ArtworkMapper {
         category.setId(entity.getCategory().getId());
         category.setName(entity.getCategory().getName());
         dto.setCategory(category);
+        dto.setCreatedDate(formatter.format(entity.getCreatedDate()));
+        dto.setModifiedDate(formatter.format(entity.getModifiedDate()));
         return dto;
     }
 }

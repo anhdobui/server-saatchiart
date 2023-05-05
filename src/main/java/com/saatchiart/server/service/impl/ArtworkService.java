@@ -33,13 +33,12 @@ public class ArtworkService implements IArtworkService{
     private CategoryRepository categoryRepository;
 
     @Override
-    @CacheEvict(value = "dataCache", allEntries = true)
+    @CacheEvict(value = {"artworkCache", "CateCache"}, allEntries = true)
     public ArtworkDTO save(ArtworkDTO artworkDTO) throws Exception {
         ArtworkEntity artworkEntity = new ArtworkEntity();
         CategoryEntity categoryEntity = null;
         if(artworkDTO.getCategoryid() != null){
-            // categoryEntity = categoryRepository.findById(artworkDTO.getCategoryid()).orElse(new CategoryEntity());
-            categoryEntity = categoryRepository.findById((long) 1).orElse(null);
+            categoryEntity = categoryRepository.findById(artworkDTO.getCategoryid()).orElse(new CategoryEntity());
             if(categoryEntity == null){
                 throw new Exception("Tập tranh không tồn tại");
             }

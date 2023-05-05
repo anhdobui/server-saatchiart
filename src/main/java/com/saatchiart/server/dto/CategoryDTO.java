@@ -9,4 +9,6 @@ public class CategoryDTO extends CategoryBaseDTO{
     private String shortDescription;
     private String content;
     private Integer countArtworks;
+    private String createdDate;
+    private String modifiedDate;
 }

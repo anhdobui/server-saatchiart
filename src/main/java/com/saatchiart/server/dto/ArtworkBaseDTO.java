@@ -20,4 +20,6 @@ public class ArtworkBaseDTO {
     private Integer quantity;
     private String thumbnailUrl;
     private List<String> albumUrls;
+    private String createdDate;
+    private String modifiedDate;
 }
